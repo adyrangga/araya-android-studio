@@ -1,0 +1,28 @@
+
+private void deleteFiles() {
+  File dir = new File(Environment.getExternalStorageDirectory(), "YourDiectoryName");
+  String[] files;
+  files = dir.list();
+  for (String file : files) {
+    File delFile = new File(dir, file);
+    delFile.delete();
+  }
+}
+
+private void deleteFilesWithPrefix() {
+// this code for delete all files if the file have a macth prefix 
+// example : [prefix_string_2019, png2019.png]
+// so only file with prefix_string will deleted
+  File dir = new File(Environment.getExternalStorageDirectory(), "YourDiectoryName");
+  String[] files;
+  files = dir.list();
+  
+  for (String file : files) {
+  
+      if (file.startsWith("prefix_string")){
+        File delFile = new File(dir, file);
+        delFile.delete();
+      }
+      
+  }
+}
